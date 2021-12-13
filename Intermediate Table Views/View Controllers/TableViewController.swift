@@ -2,8 +2,7 @@
 //  TableViewController.swift
 //  Intermediate Table Views
 //
-//  Created by Denis Bystruev on 24/01/2019.
-//  Copyright © 2019 Denis Bystruev. All rights reserved.
+//  Created by Vladimir Shevtsov on 01.12.2021.
 //
 
 import UIKit
@@ -27,14 +26,14 @@ class TableViewController: UITableViewController {
  
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EmojiList", for: indexPath) as! TableViewCell
+        let cell  = tableView.dequeueReusableCell(withIdentifier: "EmojiList", for: indexPath) as! TableViewCell
         
-        let row = indexPath.row
+        let row   = indexPath.row
         let emoji = emojis[row]
 
         cell.emojiLabel.text = emoji.emoji
-        cell.nameLabel.text = emoji.name
-        cell.descLabel.text = emoji.desc
+        cell.nameLabel.text  = emoji.name
+        cell.descLabel.text  = emoji.desc
 
         return cell
     }
@@ -44,14 +43,6 @@ class TableViewController: UITableViewController {
         return .delete
     }
     
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -62,21 +53,7 @@ class TableViewController: UITableViewController {
         }    
     }
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -84,14 +61,14 @@ class TableViewController: UITableViewController {
         print(#function)
         
         guard segue.identifier == "EmojiDetailSegue" else { return }
-        guard let controller = segue.destination as? DetailTableViewController else { return }
-        guard let path = tableView.indexPathForSelectedRow else { return }
+        guard let controller   = segue.destination as? DetailTableViewController else { return }
+        guard let path         = tableView.indexPathForSelectedRow else { return }
         
-        let row = path.row
+        let row   = path.row
         let emoji = emojis[row]
         
         controller.navigationItem.title = "Edit"
-        controller.emoji = emoji
+        controller.emoji                = emoji
         
         print(#function)
     }

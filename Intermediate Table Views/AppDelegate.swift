@@ -2,8 +2,7 @@
 //  AppDelegate.swift
 //  Intermediate Table Views
 //
-//  Created by Denis Bystruev on 24/01/2019.
-//  Copyright © 2019 Denis Bystruev. All rights reserved.
+//  Created by Vladimir Shevtsov on 01.12.2021.
 //
 
 import UIKit
